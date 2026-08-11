@@ -42,7 +42,7 @@
           <div class="ficha-info">
             <span class="ficha-name">Lucas Martínez</span>
             <span class="ficha-age">8 años</span>
-            <span class="ficha-date">Actualizada: 05/01/2025</span>
+            <span class="ficha-date">Actualizada: 05/01/2027</span>
           </div>
           <span class="badge-complete">Completa</span>
           <span class="chevron">›</span>
@@ -52,7 +52,7 @@
           <div class="ficha-info">
             <span class="ficha-name">Emma López</span>
             <span class="ficha-age">7 años</span>
-            <span class="ficha-date">Actualizada: 03/01/2025</span>
+            <span class="ficha-date">Actualizada: 03/01/2027</span>
           </div>
           <span class="badge-complete">Completa</span>
           <span class="chevron">›</span>
@@ -62,7 +62,7 @@
           <div class="ficha-info">
             <span class="ficha-name">Sofía González</span>
             <span class="ficha-age">6 años</span>
-            <span class="ficha-date">Actualizada: 02/01/2025</span>
+            <span class="ficha-date">Actualizada: 02/01/2027</span>
           </div>
           <span class="badge-complete">Completa</span>
           <span class="chevron">›</span>
@@ -72,14 +72,14 @@
           <div class="ficha-info">
             <span class="ficha-name">Thiago Romero</span>
             <span class="ficha-age">9 años</span>
-            <span class="ficha-date">Actualizada: 01/01/2025</span>
+            <span class="ficha-date">Actualizada: 01/01/2027</span>
           </div>
           <span class="badge-complete">Completa</span>
           <span class="chevron">›</span>
         </div>
       </div>
     </div>
-    <button class="fab">+</button>
+    <button class="fab" onclick="goTo('screen-registro')">+</button>
     <div class="bottom-nav">
       <button class="nav-btn active"><span>🏠</span><span>Inicio</span></button>
       <button class="nav-btn"><span>📄</span><span>Fichas</span></button>
@@ -108,17 +108,17 @@
       </div>
       <div class="section-list">
         <div class="section-row" onclick="goTo('screen-datos-personales')">
-          <span class="section-icon" style="background:#EDE7F6">👤</span>
+          <span class="section-icon" style="background:#FFF3E0">👤</span>
           <span class="section-label">Datos Personales</span>
           <span class="chevron">›</span>
         </div>
         <div class="section-row" onclick="goTo('screen-antecedentes')">
-          <span class="section-icon" style="background:#E8EAF6">🛡️</span>
+          <span class="section-icon" style="background:#FBE9E7">🛡️</span>
           <span class="section-label">Antecedentes de Salud</span>
           <span class="chevron">›</span>
         </div>
         <div class="section-row" onclick="goTo('screen-alergias')">
-          <span class="section-icon" style="background:#FCE4EC">⚕️</span>
+          <span class="section-icon" style="background:#FFE0CC">⚕️</span>
           <span class="section-label">Alergias</span>
           <span class="chevron">›</span>
         </div>
@@ -138,7 +138,7 @@
           <span class="chevron">›</span>
         </div>
         <div class="section-row" onclick="void(0)">
-          <span class="section-icon" style="background:#E8EAF6">📁</span>
+          <span class="section-icon" style="background:#FBE9E7">📁</span>
           <span class="section-label">Documentos</span>
           <span class="chevron">›</span>
         </div>
@@ -268,7 +268,7 @@
       <div class="dp-card" style="margin-bottom:28px">
         <div class="dp-row">
           <span class="dp-label">Colonia</span>
-          <span class="dp-value">Colonias de Verano 2025</span>
+          <span class="dp-value">Colonias de Verano 2027</span>
         </div>
         <div class="dp-divider"></div>
         <div class="dp-row">
@@ -392,11 +392,11 @@
           <div class="pdf-header-text">
             <span class="pdf-org">Municipalidad de Valle Viejo</span>
             <span class="pdf-title-doc">FICHA MÉDICA DIGITAL</span>
-            <span class="pdf-subtitle-doc">Colonias de Verano 2025</span>
+            <span class="pdf-subtitle-doc">Colonias de Verano 2027</span>
           </div>
           <div class="pdf-header-meta">
             <span class="pdf-meta-item">N.° de ficha: <strong>0042</strong></span>
-            <span class="pdf-meta-item">Generado: <strong>10/08/2025</strong></span>
+            <span class="pdf-meta-item">Generado: <strong>10/08/2027</strong></span>
             <span class="pdf-meta-item pdf-badge-ok">✓ Ficha completa</span>
           </div>
         </div>
@@ -581,15 +581,280 @@
 
         <!-- Footer -->
         <div class="pdf-footer">
-          <span>Municipalidad de Valle Viejo — Colonias de Verano 2025</span>
+          <span>Municipalidad de Valle Viejo — Colonias de Verano 2027</span>
           <span>Este documento tiene carácter informativo y fue generado digitalmente.</span>
-          <span>Ficha N.° 0042 · Generada el 10/08/2025</span>
+          <span>Ficha N.° 0042 · Generada el 10/08/2027</span>
         </div>
 
       </div><!-- end pdf-page -->
     </div>
   </div>
 
+  <!-- ===== SCREEN: NUEVA FICHA / REGISTRO ===== -->
+  <div class="screen" id="screen-registro">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="cancelarRegistro()">✕</button>
+      <span class="top-title">Nueva Ficha</span>
+      <button class="icon-btn" onclick="guardarFicha()" style="font-size:13px;font-weight:800;color:#FF9100">GUARDAR</button>
+    </div>
+
+    <div class="screen-body padded" id="registro-scroll">
+
+      <!-- Progreso -->
+      <div class="reg-progress">
+        <div class="reg-step active" id="step-dot-1">1</div>
+        <div class="reg-step-line"></div>
+        <div class="reg-step" id="step-dot-2">2</div>
+        <div class="reg-step-line"></div>
+        <div class="reg-step" id="step-dot-3">3</div>
+        <div class="reg-step-labels">
+          <span>Personal</span>
+          <span>Tutor</span>
+          <span>Salud</span>
+        </div>
+      </div>
+
+      <!-- PASO 1: Datos del niño -->
+      <div class="reg-step-section" id="reg-step-1">
+        <div class="reg-section-title">
+          <span class="reg-section-icon">👤</span>
+          <span>Datos del niño/a</span>
+        </div>
+        <div class="reg-card">
+          <div class="reg-field">
+            <label class="reg-label">Nombre completo *</label>
+            <input class="reg-input" type="text" placeholder="Ej: Lucas Martínez" id="reg-nombre" />
+          </div>
+          <div class="reg-row-2">
+            <div class="reg-field">
+              <label class="reg-label">Fecha de nacimiento *</label>
+              <input class="reg-input" type="date" id="reg-fecha" />
+            </div>
+            <div class="reg-field">
+              <label class="reg-label">DNI *</label>
+              <input class="reg-input" type="text" placeholder="Ej: 47.123.456" id="reg-dni" />
+            </div>
+          </div>
+          <div class="reg-row-2">
+            <div class="reg-field">
+              <label class="reg-label">Género</label>
+              <select class="reg-input reg-select" id="reg-genero">
+                <option value="">Seleccionar</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="reg-field">
+              <label class="reg-label">Grupo sanguíneo</label>
+              <select class="reg-input reg-select" id="reg-sangre">
+                <option value="">Seleccionar</option>
+                <option>A+</option><option>A-</option>
+                <option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option>
+                <option>O+</option><option>O-</option>
+              </select>
+            </div>
+          </div>
+          <div class="reg-field">
+            <label class="reg-label">Dirección</label>
+            <input class="reg-input" type="text" placeholder="Ej: Av. San Martín 1234" id="reg-direccion" />
+          </div>
+          <div class="reg-field">
+            <label class="reg-label">Escuela</label>
+            <input class="reg-input" type="text" placeholder="Ej: Escuela Primaria N.º 14" id="reg-escuela" />
+          </div>
+          <div class="reg-row-2">
+            <div class="reg-field">
+              <label class="reg-label">Grado</label>
+              <input class="reg-input" type="text" placeholder="Ej: 3.° año" id="reg-grado" />
+            </div>
+            <div class="reg-field">
+              <label class="reg-label">Turno</label>
+              <select class="reg-input reg-select" id="reg-turno-escuela">
+                <option value="">—</option>
+                <option>Mañana</option>
+                <option>Tarde</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="reg-section-title" style="margin-top:4px">
+          <span class="reg-section-icon">🏕️</span>
+          <span>Datos de la colonia</span>
+        </div>
+        <div class="reg-card">
+          <div class="reg-row-2">
+            <div class="reg-field">
+              <label class="reg-label">Turno colonia</label>
+              <select class="reg-input reg-select" id="reg-turno-colonia">
+                <option value="">Seleccionar</option>
+                <option>Turno A – Semana 1</option>
+                <option>Turno B – Semana 2</option>
+                <option>Turno C – Semana 3</option>
+              </select>
+            </div>
+            <div class="reg-field">
+              <label class="reg-label">Sede</label>
+              <select class="reg-input reg-select" id="reg-sede">
+                <option value="">Seleccionar</option>
+                <option>Club Deportivo Valle Viejo</option>
+                <option>Polideportivo Municipal</option>
+                <option>Parque Urbano</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button class="reg-next-btn" onclick="irPaso(2)">Siguiente → Datos del tutor</button>
+      </div>
+
+      <!-- PASO 2: Datos del tutor -->
+      <div class="reg-step-section hidden" id="reg-step-2">
+        <div class="reg-section-title">
+          <span class="reg-section-icon">👨‍👩‍👦</span>
+          <span>Tutor / Responsable</span>
+        </div>
+        <div class="reg-card">
+          <div class="reg-field">
+            <label class="reg-label">Nombre completo del tutor *</label>
+            <input class="reg-input" type="text" placeholder="Ej: María González" id="reg-tutor-nombre" />
+          </div>
+          <div class="reg-row-2">
+            <div class="reg-field">
+              <label class="reg-label">Relación</label>
+              <select class="reg-input reg-select" id="reg-tutor-relacion">
+                <option value="">—</option>
+                <option>Madre</option>
+                <option>Padre</option>
+                <option>Abuelo/a</option>
+                <option>Tutor legal</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="reg-field">
+              <label class="reg-label">Teléfono *</label>
+              <input class="reg-input" type="tel" placeholder="351-234-5678" id="reg-tutor-tel" />
+            </div>
+          </div>
+          <div class="reg-field">
+            <label class="reg-label">Email</label>
+            <input class="reg-input" type="email" placeholder="correo@email.com" id="reg-tutor-email" />
+          </div>
+        </div>
+
+        <div class="reg-section-title" style="margin-top:4px">
+          <span class="reg-section-icon">📞</span>
+          <span>Contacto de emergencia</span>
+        </div>
+        <div class="reg-card">
+          <div class="reg-field">
+            <label class="reg-label">Nombre</label>
+            <input class="reg-input" type="text" placeholder="Ej: Carlos Martínez" id="reg-emerg-nombre" />
+          </div>
+          <div class="reg-row-2">
+            <div class="reg-field">
+              <label class="reg-label">Relación</label>
+              <input class="reg-input" type="text" placeholder="Ej: Padre" id="reg-emerg-rel" />
+            </div>
+            <div class="reg-field">
+              <label class="reg-label">Teléfono</label>
+              <input class="reg-input" type="tel" placeholder="351-876-5432" id="reg-emerg-tel" />
+            </div>
+          </div>
+        </div>
+
+        <div class="reg-nav-row">
+          <button class="reg-back-btn" onclick="irPaso(1)">← Atrás</button>
+          <button class="reg-next-btn" onclick="irPaso(3)">Siguiente → Salud</button>
+        </div>
+      </div>
+
+      <!-- PASO 3: Salud -->
+      <div class="reg-step-section hidden" id="reg-step-3">
+        <div class="reg-section-title">
+          <span class="reg-section-icon">🛡️</span>
+          <span>Antecedentes de salud</span>
+        </div>
+        <div class="reg-card">
+          <div class="reg-field">
+            <label class="reg-label">Antecedentes personales</label>
+            <textarea class="reg-input reg-textarea" placeholder="Ej: Sin antecedentes de relevancia..." id="reg-ant-personal"></textarea>
+          </div>
+          <div class="reg-field">
+            <label class="reg-label">Antecedentes familiares</label>
+            <textarea class="reg-input reg-textarea" placeholder="Ej: Abuelo con hipertensión..." id="reg-ant-familiar"></textarea>
+          </div>
+          <div class="reg-field">
+            <label class="reg-label">Antecedentes quirúrgicos</label>
+            <textarea class="reg-input reg-textarea" placeholder="Ej: Apendicectomía en 2021..." id="reg-ant-quir"></textarea>
+          </div>
+        </div>
+
+        <div class="reg-section-title" style="margin-top:4px">
+          <span class="reg-section-icon">⚕️</span>
+          <span>Alergias</span>
+        </div>
+        <div class="reg-card">
+          <div class="reg-field">
+            <label class="reg-label">¿Presenta alergias?</label>
+            <select class="reg-input reg-select" id="reg-alergia-tipo" onchange="toggleAlergiaDetalle(this)">
+              <option value="no">No presenta</option>
+              <option value="si">Sí presenta</option>
+            </select>
+          </div>
+          <div id="reg-alergia-detalle" class="hidden">
+            <div class="reg-field">
+              <label class="reg-label">Describir alergia y reacción</label>
+              <textarea class="reg-input reg-textarea" placeholder="Ej: Alergia a maní — reacción: urticaria..." id="reg-alergia-desc"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="reg-section-title" style="margin-top:4px">
+          <span class="reg-section-icon">💊</span>
+          <span>Medicación habitual</span>
+        </div>
+        <div class="reg-card">
+          <div class="reg-field">
+            <label class="reg-label">Medicación (si aplica)</label>
+            <textarea class="reg-input reg-textarea" placeholder="Ej: Ventolín - 2 puffs ante crisis..." id="reg-medicacion"></textarea>
+          </div>
+        </div>
+
+        <div class="reg-section-title" style="margin-top:4px">
+          <span class="reg-section-icon">📝</span>
+          <span>Observaciones generales</span>
+        </div>
+        <div class="reg-card" style="margin-bottom:8px">
+          <div class="reg-field">
+            <label class="reg-label">Observaciones</label>
+            <textarea class="reg-input reg-textarea" placeholder="Cualquier información adicional relevante para los coordinadores..." id="reg-obs" style="height:80px"></textarea>
+          </div>
+        </div>
+
+        <div class="reg-nav-row">
+          <button class="reg-back-btn" onclick="irPaso(2)">← Atrás</button>
+          <button class="reg-save-btn" onclick="guardarFicha()">✓ Guardar ficha</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal de éxito -->
+  <div class="modal-overlay hidden" id="modal-exito">
+    <div class="modal-card">
+      <div class="modal-icon">✓</div>
+      <h3 class="modal-title">¡Ficha registrada!</h3>
+      <p class="modal-text">La ficha fue creada exitosamente para <strong id="modal-nombre-guardado"></strong>.</p>
+      <button class="modal-btn" onclick="cerrarModal()">Ver lista de fichas</button>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
+
+
