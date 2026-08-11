@@ -122,22 +122,22 @@
           <span class="section-label">Alergias</span>
           <span class="chevron">›</span>
         </div>
-        <div class="section-row" onclick="void(0)">
+        <div class="section-row" onclick="goTo('screen-medicacion')">
           <span class="section-icon" style="background:#FFF3E0">💊</span>
           <span class="section-label">Medicación Habitual</span>
           <span class="chevron">›</span>
         </div>
-        <div class="section-row" onclick="void(0)">
+        <div class="section-row" onclick="goTo('screen-contactos')">
           <span class="section-icon" style="background:#E8F5E9">📞</span>
           <span class="section-label">Contactos de Emergencia</span>
           <span class="chevron">›</span>
         </div>
-        <div class="section-row" onclick="void(0)">
+        <div class="section-row" onclick="goTo('screen-observaciones')">
           <span class="section-icon" style="background:#E3F2FD">📝</span>
           <span class="section-label">Observaciones</span>
           <span class="chevron">›</span>
         </div>
-        <div class="section-row" onclick="void(0)">
+        <div class="section-row" onclick="goTo('screen-documentos')">
           <span class="section-icon" style="background:#FBE9E7">📁</span>
           <span class="section-label">Documentos</span>
           <span class="chevron">›</span>
@@ -587,6 +587,316 @@
         </div>
 
       </div><!-- end pdf-page -->
+    </div>
+  </div>
+
+  <!-- ===== SCREEN: MEDICACIÓN HABITUAL ===== -->
+  <div class="screen" id="screen-medicacion">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="goBack()">←</button>
+      <span class="top-title">Medicación Habitual</span>
+      <button class="icon-btn">✏️</button>
+    </div>
+    <div class="screen-body padded">
+
+      <div class="med-empty-banner">
+        <span class="med-banner-icon">💊</span>
+        <span class="med-banner-text">Sin medicación habitual</span>
+        <span class="med-banner-sub">El niño/a no tiene medicación registrada como habitual.</span>
+      </div>
+
+      <div class="med-section-title">Medicamentos registrados</div>
+
+      <div class="med-card">
+        <div class="med-header">
+          <div class="med-icon-wrap" style="background:#FFF3E0">💊</div>
+          <div class="med-info">
+            <span class="med-name">Ventolín (Salbutamol)</span>
+            <span class="med-dosis">2 puffs al inicio de la actividad física</span>
+          </div>
+          <span class="med-badge" style="background:#FFF3E0;color:#E65100">SOS</span>
+        </div>
+        <div class="med-detail-row">
+          <span class="med-detail-label">Vía</span>
+          <span class="med-detail-val">Inhalatoria</span>
+        </div>
+        <div class="med-detail-row">
+          <span class="med-detail-label">Frecuencia</span>
+          <span class="med-detail-val">Ante crisis respiratoria</span>
+        </div>
+        <div class="med-detail-row">
+          <span class="med-detail-label">Lo lleva encima</span>
+          <span class="med-detail-val med-si">✓ Sí</span>
+        </div>
+        <div class="med-detail-row">
+          <span class="med-detail-label">Indicado por</span>
+          <span class="med-detail-val">Dr. Ramírez — Pediatra</span>
+        </div>
+      </div>
+
+      <div class="med-card">
+        <div class="med-header">
+          <div class="med-icon-wrap" style="background:#E8F5E9">🌿</div>
+          <div class="med-info">
+            <span class="med-name">Cetirizina 5mg</span>
+            <span class="med-dosis">1 comprimido por día</span>
+          </div>
+          <span class="med-badge" style="background:#E8F5E9;color:#2E7D32">Diario</span>
+        </div>
+        <div class="med-detail-row">
+          <span class="med-detail-label">Vía</span>
+          <span class="med-detail-val">Oral</span>
+        </div>
+        <div class="med-detail-row">
+          <span class="med-detail-label">Frecuencia</span>
+          <span class="med-detail-val">Una vez al día, por la mañana</span>
+        </div>
+        <div class="med-detail-row">
+          <span class="med-detail-label">Lo lleva encima</span>
+          <span class="med-detail-val med-no">✗ No — administrado en casa</span>
+        </div>
+        <div class="med-detail-row">
+          <span class="med-detail-label">Indicado por</span>
+          <span class="med-detail-val">Dra. Sosa — Alergóloga</span>
+        </div>
+      </div>
+
+      <div class="med-aviso">
+        ⚠️ Ante cualquier emergencia, contactar al tutor antes de administrar medicación.
+      </div>
+
+    </div>
+    <div class="bottom-action">
+      <button class="btn-outline-purple" onclick="void(0)">+ Agregar medicamento</button>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN: CONTACTOS DE EMERGENCIA ===== -->
+  <div class="screen" id="screen-contactos">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="goBack()">←</button>
+      <span class="top-title">Contactos de Emergencia</span>
+      <button class="icon-btn">✏️</button>
+    </div>
+    <div class="screen-body padded">
+
+      <div class="ctc-aviso">
+        🚨 En caso de emergencia, contactar en el orden indicado.
+      </div>
+
+      <!-- Contacto 1 -->
+      <div class="ctc-card">
+        <div class="ctc-orden">1°</div>
+        <div class="ctc-body">
+          <div class="ctc-header">
+            <div class="ctc-avatar av2"><span class="avatar-initials">MG</span></div>
+            <div class="ctc-info">
+              <span class="ctc-name">María González</span>
+              <span class="ctc-rel">Madre · Tutor principal</span>
+            </div>
+          </div>
+          <div class="ctc-actions">
+            <a href="tel:3512345678" class="ctc-btn ctc-btn-call">📞 351-234-5678</a>
+            <a href="https://wa.me/543512345678" class="ctc-btn ctc-btn-wp">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacto 2 -->
+      <div class="ctc-card">
+        <div class="ctc-orden">2°</div>
+        <div class="ctc-body">
+          <div class="ctc-header">
+            <div class="ctc-avatar av4"><span class="avatar-initials">CM</span></div>
+            <div class="ctc-info">
+              <span class="ctc-name">Carlos Martínez</span>
+              <span class="ctc-rel">Padre</span>
+            </div>
+          </div>
+          <div class="ctc-actions">
+            <a href="tel:3518765432" class="ctc-btn ctc-btn-call">📞 351-876-5432</a>
+            <a href="https://wa.me/543518765432" class="ctc-btn ctc-btn-wp">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacto 3 -->
+      <div class="ctc-card">
+        <div class="ctc-orden">3°</div>
+        <div class="ctc-body">
+          <div class="ctc-header">
+            <div class="ctc-avatar av3"><span class="avatar-initials">RG</span></div>
+            <div class="ctc-info">
+              <span class="ctc-name">Rosa González</span>
+              <span class="ctc-rel">Abuela materna</span>
+            </div>
+          </div>
+          <div class="ctc-actions">
+            <a href="tel:3513334444" class="ctc-btn ctc-btn-call">📞 351-333-4444</a>
+            <a href="https://wa.me/543513334444" class="ctc-btn ctc-btn-wp">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Médico de cabecera -->
+      <div class="med-section-title" style="margin-top:4px">Médico de cabecera</div>
+      <div class="ctc-card">
+        <div class="ctc-orden" style="background:#FBE9E7;color:#F4511E">🩺</div>
+        <div class="ctc-body">
+          <div class="ctc-header">
+            <div class="ctc-avatar" style="background:linear-gradient(135deg,#F4511E,#FF9100)"><span class="avatar-initials">DR</span></div>
+            <div class="ctc-info">
+              <span class="ctc-name">Dr. Ramírez</span>
+              <span class="ctc-rel">Pediatra — Centro de Salud N.º 3</span>
+            </div>
+          </div>
+          <div class="ctc-actions">
+            <a href="tel:3515556666" class="ctc-btn ctc-btn-call">📞 351-555-6666</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bottom-action">
+      <button class="btn-outline-purple" onclick="void(0)">+ Agregar contacto</button>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN: OBSERVACIONES ===== -->
+  <div class="screen" id="screen-observaciones">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="goBack()">←</button>
+      <span class="top-title">Observaciones</span>
+      <button class="icon-btn" onclick="toggleEditObs()">✏️</button>
+    </div>
+    <div class="screen-body padded">
+
+      <div class="obs-tag-row">
+        <span class="obs-tag orange">🏃 Actividad física</span>
+        <span class="obs-tag blue">💧 Hidratación</span>
+        <span class="obs-tag red">🚨 Urgente</span>
+      </div>
+
+      <div class="obs-card" id="obs-view">
+        <div class="obs-meta">Última actualización: 05/01/2027 · Por coordinación</div>
+        <p class="obs-text">
+          El niño tiene dificultades con actividades de alto impacto prolongadas. Se recomienda hidratación frecuente cada 30 minutos durante las actividades.
+        </p>
+        <p class="obs-text">
+          Lleva consigo un inhalador de emergencia (Ventolín) en la mochila. El personal debe saber su ubicación en todo momento.
+        </p>
+        <p class="obs-text">
+          Muy buen desempeño en actividades grupales. Disfruta especialmente del arte y la música. Sociable y colaborativo con sus compañeros.
+        </p>
+      </div>
+
+      <div class="obs-edit-wrap hidden" id="obs-edit">
+        <textarea class="obs-textarea" id="obs-textarea-input">El niño tiene dificultades con actividades de alto impacto prolongadas. Se recomienda hidratación frecuente cada 30 minutos durante las actividades.
+
+Lleva consigo un inhalador de emergencia (Ventolín) en la mochila. El personal debe saber su ubicación en todo momento.
+
+Muy buen desempeño en actividades grupales. Disfruta especialmente del arte y la música. Sociable y colaborativo con sus compañeros.</textarea>
+        <button class="reg-save-btn" style="margin-top:8px" onclick="guardarObs()">✓ Guardar cambios</button>
+      </div>
+
+      <div class="med-section-title" style="margin-top:4px">Historial de notas</div>
+      <div class="obs-historial">
+        <div class="obs-hist-item">
+          <span class="obs-hist-date">05/01/2027</span>
+          <span class="obs-hist-autor">Coordinación médica</span>
+          <span class="obs-hist-text">Se agrega nota sobre inhalador y actividad física.</span>
+        </div>
+        <div class="obs-hist-item">
+          <span class="obs-hist-date">28/12/2026</span>
+          <span class="obs-hist-autor">Dra. Sosa</span>
+          <span class="obs-hist-text">Inicio de tratamiento con Cetirizina por alergia estacional.</span>
+        </div>
+        <div class="obs-hist-item" style="border-bottom:none">
+          <span class="obs-hist-date">01/12/2026</span>
+          <span class="obs-hist-autor">Inscripción</span>
+          <span class="obs-hist-text">Ficha creada al momento de la inscripción.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SCREEN: DOCUMENTOS ===== -->
+  <div class="screen" id="screen-documentos">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="goBack()">←</button>
+      <span class="top-title">Documentos</span>
+      <button class="icon-btn">⬆️</button>
+    </div>
+    <div class="screen-body padded">
+
+      <div class="doc-summary">
+        <div class="doc-summary-item">
+          <span class="doc-summary-num">3</span>
+          <span class="doc-summary-label">Documentos</span>
+        </div>
+        <div class="doc-summary-divider"></div>
+        <div class="doc-summary-item">
+          <span class="doc-summary-num ok">✓ Completo</span>
+          <span class="doc-summary-label">Estado</span>
+        </div>
+        <div class="doc-summary-divider"></div>
+        <div class="doc-summary-item">
+          <span class="doc-summary-num">2,4 MB</span>
+          <span class="doc-summary-label">Tamaño total</span>
+        </div>
+      </div>
+
+      <div class="med-section-title">Documentos adjuntos</div>
+
+      <div class="doc-card" onclick="void(0)">
+        <div class="doc-icon" style="background:#FBE9E7;color:#F4511E">📄</div>
+        <div class="doc-info">
+          <span class="doc-name">DNI — Lucas Martínez</span>
+          <span class="doc-meta">PDF · 320 KB · Subido 28/12/2026</span>
+        </div>
+        <div class="doc-actions">
+          <button class="doc-btn">👁</button>
+          <button class="doc-btn">⬇</button>
+        </div>
+      </div>
+
+      <div class="doc-card" onclick="void(0)">
+        <div class="doc-icon" style="background:#E8F5E9;color:#2E7D32">🏥</div>
+        <div class="doc-info">
+          <span class="doc-name">Certificado médico apto físico</span>
+          <span class="doc-meta">PDF · 1,8 MB · Subido 02/01/2027</span>
+        </div>
+        <div class="doc-actions">
+          <button class="doc-btn">👁</button>
+          <button class="doc-btn">⬇</button>
+        </div>
+      </div>
+
+      <div class="doc-card" onclick="void(0)">
+        <div class="doc-icon" style="background:#E3F2FD;color:#1565C0">💉</div>
+        <div class="doc-info">
+          <span class="doc-name">Carnet de vacunación</span>
+          <span class="doc-meta">Imagen · 280 KB · Subido 02/01/2027</span>
+        </div>
+        <div class="doc-actions">
+          <button class="doc-btn">👁</button>
+          <button class="doc-btn">⬇</button>
+        </div>
+      </div>
+
+      <div class="doc-faltante">
+        <div class="doc-icon" style="background:#F5F5F5;color:#ccc">📋</div>
+        <div class="doc-info">
+          <span class="doc-name" style="color:#aaa">Autorización de actividades</span>
+          <span class="doc-meta" style="color:#F4511E;font-weight:700">⚠ Pendiente de carga</span>
+        </div>
+        <button class="doc-upload-btn">⬆ Subir</button>
+      </div>
+
+    </div>
+    <div class="bottom-action">
+      <button class="btn-outline-purple" onclick="void(0)">⬆ Subir documento</button>
     </div>
   </div>
 

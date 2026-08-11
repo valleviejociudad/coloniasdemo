@@ -58,6 +58,45 @@ function imprimirFicha() {
 }
 
 // =============================================
+//  OBSERVACIONES
+// =============================================
+
+/** Alterna entre modo lectura y modo edición en Observaciones */
+function toggleEditObs() {
+  const view = document.getElementById('obs-view');
+  const edit = document.getElementById('obs-edit');
+  const isEditing = !edit.classList.contains('hidden');
+  if (isEditing) {
+    view.classList.remove('hidden');
+    edit.classList.add('hidden');
+  } else {
+    view.classList.add('hidden');
+    edit.classList.remove('hidden');
+    document.getElementById('obs-textarea-input').focus();
+  }
+}
+
+/** Guarda el texto de observaciones y vuelve al modo lectura */
+function guardarObs() {
+  const newText = document.getElementById('obs-textarea-input').value.trim();
+  const view    = document.getElementById('obs-view');
+  const edit    = document.getElementById('obs-edit');
+
+  // Actualizar los párrafos de texto en la vista
+  const paras = view.querySelectorAll('.obs-text');
+  const lines  = newText.split('\n\n').filter(l => l.trim());
+  paras.forEach((p, i) => { p.textContent = lines[i] || ''; });
+
+  // Actualizar meta fecha
+  const now = new Date();
+  view.querySelector('.obs-meta').textContent =
+    `Última actualización: ${now.toLocaleDateString('es-AR')} · Por coordinación`;
+
+  view.classList.remove('hidden');
+  edit.classList.add('hidden');
+}
+
+// =============================================
 //  FORMULARIO MULTI-PASO
 // =============================================
 

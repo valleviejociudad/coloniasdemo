@@ -1018,6 +1018,393 @@ html, body {
 }
 
 /* =============================================
+   SCREENS: MEDICACIÓN · CONTACTOS · OBS · DOCS
+   ============================================= */
+
+/* Shared section title for these screens */
+.med-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #F4511E;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 2px 2px;
+}
+
+/* — MEDICACIÓN — */
+.med-empty-banner {
+  background: linear-gradient(135deg, #FFF3E0, #FFF8F4);
+  border: 1.5px dashed #FFCC99;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.med-banner-icon { font-size: 28px; }
+.med-banner-text { font-size: 14px; font-weight: 700; color: #E65100; }
+.med-banner-sub  { font-size: 12px; color: #aaa; }
+
+.med-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.med-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.med-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.med-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.med-name  { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+.med-dosis { font-size: 12px; color: #888; }
+
+.med-badge {
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 3px 10px;
+  flex-shrink: 0;
+}
+
+.med-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid #F5F5F5;
+}
+.med-detail-row:last-child { border-bottom: none; }
+.med-detail-label { font-size: 12px; color: #aaa; font-weight: 500; }
+.med-detail-val   { font-size: 13px; color: #1a1a2e; font-weight: 600; }
+.med-si  { color: #2E7D32 !important; }
+.med-no  { color: #E53935 !important; }
+
+.med-aviso {
+  background: #FFF8F4;
+  border: 1.5px solid #FFD0B5;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: #BF360C;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* — CONTACTOS — */
+.ctc-aviso {
+  background: #FBE9E7;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #BF360C;
+  font-weight: 600;
+}
+
+.ctc-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.ctc-orden {
+  width: 36px;
+  flex-shrink: 0;
+  background: #FFF3E0;
+  color: #F4511E;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: horizontal-tb;
+}
+
+.ctc-body {
+  flex: 1;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ctc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ctc-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctc-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ctc-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+.ctc-rel  { font-size: 11px; color: #aaa; font-weight: 500; }
+
+.ctc-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.ctc-btn {
+  flex: 1;
+  padding: 9px 0;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  touch-action: manipulation;
+}
+
+.ctc-btn-call {
+  background: linear-gradient(135deg, #F4511E, #FF9100);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(244,81,30,0.3);
+}
+
+.ctc-btn-wp {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+/* — OBSERVACIONES — */
+.obs-tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.obs-tag {
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 5px 12px;
+}
+.obs-tag.orange { background: #FFF3E0; color: #E65100; }
+.obs-tag.blue   { background: #E3F2FD; color: #1565C0; }
+.obs-tag.red    { background: #FBE9E7; color: #BF360C; }
+
+.obs-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.obs-meta {
+  font-size: 10px;
+  color: #bbb;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.obs-text {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.65;
+}
+
+.obs-edit-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.obs-textarea {
+  width: 100%;
+  min-height: 160px;
+  background: #fff;
+  border: 1.5px solid #FFD0B5;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  color: #1a1a2e;
+  line-height: 1.65;
+  resize: none;
+  outline: none;
+}
+.obs-textarea:focus { border-color: #F4511E; }
+
+.obs-historial {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-bottom: 16px;
+}
+
+.obs-hist-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 11px 14px;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.obs-hist-date  { font-size: 10px; color: #bbb; font-weight: 700; }
+.obs-hist-autor { font-size: 12px; color: #F4511E; font-weight: 700; }
+.obs-hist-text  { font-size: 12px; color: #555; line-height: 1.4; }
+
+/* — DOCUMENTOS — */
+.doc-summary {
+  background: linear-gradient(135deg, #F4511E, #FF9100);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8px;
+}
+
+.doc-summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.doc-summary-num {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+}
+.doc-summary-num.ok { font-size: 13px; }
+.doc-summary-label { font-size: 10px; color: rgba(255,255,255,0.75); font-weight: 600; }
+
+.doc-summary-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,0.3);
+}
+
+.doc-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+.doc-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+
+.doc-faltante {
+  background: #FAFAFA;
+  border: 1.5px dashed #DDD;
+  border-radius: 14px;
+  padding: 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.doc-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.doc-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.doc-name { font-size: 13px; font-weight: 700; color: #1a1a2e; }
+.doc-meta { font-size: 11px; color: #aaa; }
+
+.doc-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.doc-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F5F5F8;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+}
+.doc-btn:hover { background: #FFF3E0; }
+
+.doc-upload-btn {
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #F4511E, #FF9100);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+  touch-action: manipulation;
+}
+
+/* =============================================
    SCREEN: REGISTRO
    ============================================= */
 .hidden { display: none !important; }
