@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colonias de Verano – Fichas Médicas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== SCREEN 1: SPLASH / LOGIN ===== -->
+  <div class="screen active" id="screen-splash">
+    <div class="splash-buttons">
+      <button class="btn-primary" onclick="goTo('screen-list')">Iniciar sesión</button>
+      <button class="btn-outline">Registrarse</button>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 2: LISTA FICHAS ===== -->
+  <div class="screen" id="screen-list">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="void(0)">☰</button>
+      <span class="top-title">Fichas Médicas</span>
+      <button class="icon-btn notif-btn">🔔<span class="notif-dot"></span></button>
+    </div>
+    <div class="screen-body">
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Buscar niño/a" id="search-input" oninput="filterList()" />
+      </div>
+      <div class="tabs">
+        <button class="tab" onclick="setTab(this)">Todos</button>
+        <button class="tab active" onclick="setTab(this)">Activos</button>
+        <button class="tab" onclick="setTab(this)">Inactivos</button>
+      </div>
+      <div class="list-items" id="ficha-list">
+        <div class="ficha-item" onclick="goTo('screen-detail')">
+          <div class="ficha-avatar av1"><span class="avatar-initials">LM</span></div>
+          <div class="ficha-info">
+            <span class="ficha-name">Lucas Martínez</span>
+            <span class="ficha-age">8 años</span>
+            <span class="ficha-date">Actualizada: 05/01/2025</span>
+          </div>
+          <span class="badge-complete">Completa</span>
+          <span class="chevron">›</span>
+        </div>
+        <div class="ficha-item" onclick="goTo('screen-detail')">
+          <div class="ficha-avatar av2"><span class="avatar-initials">EL</span></div>
+          <div class="ficha-info">
+            <span class="ficha-name">Emma López</span>
+            <span class="ficha-age">7 años</span>
+            <span class="ficha-date">Actualizada: 03/01/2025</span>
+          </div>
+          <span class="badge-complete">Completa</span>
+          <span class="chevron">›</span>
+        </div>
+        <div class="ficha-item" onclick="goTo('screen-detail')">
+          <div class="ficha-avatar av3"><span class="avatar-initials">SG</span></div>
+          <div class="ficha-info">
+            <span class="ficha-name">Sofía González</span>
+            <span class="ficha-age">6 años</span>
+            <span class="ficha-date">Actualizada: 02/01/2025</span>
+          </div>
+          <span class="badge-complete">Completa</span>
+          <span class="chevron">›</span>
+        </div>
+        <div class="ficha-item" onclick="goTo('screen-detail')">
+          <div class="ficha-avatar av4"><span class="avatar-initials">TR</span></div>
+          <div class="ficha-info">
+            <span class="ficha-name">Thiago Romero</span>
+            <span class="ficha-age">9 años</span>
+            <span class="ficha-date">Actualizada: 01/01/2025</span>
+          </div>
+          <span class="badge-complete">Completa</span>
+          <span class="chevron">›</span>
+        </div>
+      </div>
+    </div>
+    <button class="fab">+</button>
+    <div class="bottom-nav">
+      <button class="nav-btn active"><span>🏠</span><span>Inicio</span></button>
+      <button class="nav-btn"><span>📄</span><span>Fichas</span></button>
+      <button class="nav-btn"><span>📷</span><span>Escanear</span></button>
+      <button class="nav-btn"><span>📊</span><span>Reportes</span></button>
+      <button class="nav-btn"><span>⚙️</span><span>Ajustes</span></button>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 3: DETALLE FICHA ===== -->
+  <div class="screen" id="screen-detail">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="goBack()">←</button>
+      <span class="top-title">Detalle de Ficha</span>
+      <button class="icon-btn">✏️</button>
+    </div>
+    <div class="screen-body">
+      <div class="profile-header">
+        <div class="profile-pic av1"><span class="avatar-initials avatar-initials-lg">LM</span></div>
+        <div class="profile-info">
+          <h1 class="profile-name">Lucas Martínez</h1>
+          <p class="profile-meta">8 años | 12/04/2016</p>
+          <p class="profile-meta">DNI: 47.123.456</p>
+          <span class="badge-completa">Ficha completa</span>
+        </div>
+      </div>
+      <div class="section-list">
+        <div class="section-row" onclick="goTo('screen-datos-personales')">
+          <span class="section-icon" style="background:#EDE7F6">👤</span>
+          <span class="section-label">Datos Personales</span>
+          <span class="chevron">›</span>
+        </div>
+        <div class="section-row" onclick="goTo('screen-antecedentes')">
+          <span class="section-icon" style="background:#E8EAF6">🛡️</span>
+          <span class="section-label">Antecedentes de Salud</span>
+          <span class="chevron">›</span>
+        </div>
+        <div class="section-row" onclick="goTo('screen-alergias')">
+          <span class="section-icon" style="background:#FCE4EC">⚕️</span>
+          <span class="section-label">Alergias</span>
+          <span class="chevron">›</span>
+        </div>
+        <div class="section-row" onclick="void(0)">
+          <span class="section-icon" style="background:#FFF3E0">💊</span>
+          <span class="section-label">Medicación Habitual</span>
+          <span class="chevron">›</span>
+        </div>
+        <div class="section-row" onclick="void(0)">
+          <span class="section-icon" style="background:#E8F5E9">📞</span>
+          <span class="section-label">Contactos de Emergencia</span>
+          <span class="chevron">›</span>
+        </div>
+        <div class="section-row" onclick="void(0)">
+          <span class="section-icon" style="background:#E3F2FD">📝</span>
+          <span class="section-label">Observaciones</span>
+          <span class="chevron">›</span>
+        </div>
+        <div class="section-row" onclick="void(0)">
+          <span class="section-icon" style="background:#E8EAF6">📁</span>
+          <span class="section-label">Documentos</span>
+          <span class="chevron">›</span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-action">
+      <button class="btn-download" onclick="goTo('screen-pdf')">⬇ Descargar PDF</button>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 4: DATOS PERSONALES ===== -->
+  <div class="screen" id="screen-datos-personales">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="goBack()">←</button>
+      <span class="top-title">Datos Personales</span>
+      <button class="icon-btn">✏️</button>
+    </div>
+    <div class="screen-body padded">
+
+      <!-- Avatar + nombre -->
+      <div class="dp-header-card">
+        <div class="dp-avatar av1"><span class="avatar-initials avatar-initials-lg">LM</span></div>
+        <div class="dp-header-info">
+          <span class="dp-main-name">Lucas Martínez</span>
+          <span class="badge-completa" style="align-self:flex-start">Ficha completa</span>
+        </div>
+      </div>
+
+      <!-- Sección: Identificación -->
+      <div class="dp-section-title">Identificación</div>
+      <div class="dp-card">
+        <div class="dp-row">
+          <span class="dp-label">Nombre completo</span>
+          <span class="dp-value">Lucas Martínez</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Fecha de nacimiento</span>
+          <span class="dp-value">12/04/2016</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Edad</span>
+          <span class="dp-value">8 años</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">DNI</span>
+          <span class="dp-value">47.123.456</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Género</span>
+          <span class="dp-value">Masculino</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Grupo sanguíneo</span>
+          <span class="dp-value dp-tag red-tag">A+</span>
+        </div>
+      </div>
+
+      <!-- Sección: Domicilio -->
+      <div class="dp-section-title">Domicilio</div>
+      <div class="dp-card">
+        <div class="dp-row">
+          <span class="dp-label">Dirección</span>
+          <span class="dp-value">Av. San Martín 1234</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Barrio / Ciudad</span>
+          <span class="dp-value">Valle Viejo, Catamarca</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Código postal</span>
+          <span class="dp-value">K4700</span>
+        </div>
+      </div>
+
+      <!-- Sección: Institución -->
+      <div class="dp-section-title">Institución educativa</div>
+      <div class="dp-card">
+        <div class="dp-row">
+          <span class="dp-label">Escuela</span>
+          <span class="dp-value">Escuela Primaria N.º 14</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Grado</span>
+          <span class="dp-value">3.° año</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Turno</span>
+          <span class="dp-value">Mañana</span>
+        </div>
+      </div>
+
+      <!-- Sección: Tutor -->
+      <div class="dp-section-title">Tutor / Responsable</div>
+      <div class="dp-card">
+        <div class="dp-row">
+          <span class="dp-label">Nombre</span>
+          <span class="dp-value">María González</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Relación</span>
+          <span class="dp-value">Madre</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Teléfono</span>
+          <span class="dp-value dp-link">351-234-5678</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Email</span>
+          <span class="dp-value dp-link">martinez@email.com</span>
+        </div>
+      </div>
+
+      <!-- Sección: Colonia -->
+      <div class="dp-section-title">Datos de la colonia</div>
+      <div class="dp-card" style="margin-bottom:28px">
+        <div class="dp-row">
+          <span class="dp-label">Colonia</span>
+          <span class="dp-value">Colonias de Verano 2025</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Turno</span>
+          <span class="dp-value">Turno A – Semana 1</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Sede</span>
+          <span class="dp-value">Club Deportivo Valle Viejo</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-row">
+          <span class="dp-label">Fecha de inscripción</span>
+          <span class="dp-value">28/12/2024</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 5: ANTECEDENTES ===== -->
+  <div class="screen" id="screen-antecedentes">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="goBack()">←</button>
+      <span class="top-title">Antecedentes de Salud</span>
+      <span style="width:36px"></span>
+    </div>
+    <div class="screen-body padded">
+      <div class="antec-card">
+        <div class="antec-header">
+          <span class="antec-title">Personales</span>
+          <span class="check-circle">✓</span>
+        </div>
+        <p class="antec-body">Sin antecedentes personales de relevancia.</p>
+      </div>
+      <div class="antec-card">
+        <div class="antec-header">
+          <span class="antec-title">Familiares</span>
+          <span class="check-circle">✓</span>
+        </div>
+        <p class="antec-body">Abuelo materno con hipertensión arterial.</p>
+      </div>
+      <div class="antec-card">
+        <div class="antec-header">
+          <span class="antec-title">Quirúrgicos</span>
+          <span class="check-circle">✓</span>
+        </div>
+        <p class="antec-body">Apendicectomía en 2021.</p>
+      </div>
+      <div class="antec-card">
+        <div class="antec-header">
+          <span class="antec-title">Otros</span>
+          <span class="check-circle">✓</span>
+        </div>
+        <p class="antec-body">Ninguno.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 6: ALERGIAS ===== -->
+  <div class="screen" id="screen-alergias">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="goBack()">←</button>
+      <span class="top-title">Alergias</span>
+      <span style="width:36px"></span>
+    </div>
+    <div class="screen-body padded">
+      <div class="alergia-card red-card">
+        <div class="alergia-icon red-icon">⚠️</div>
+        <div class="alergia-info">
+          <span class="alergia-title">Alergia alimentaria</span>
+          <span class="alergia-sub">Maní</span>
+          <span class="alergia-react">Reacción: urticaria, dificultad para respirar.</span>
+        </div>
+      </div>
+      <div class="alergia-card yellow-card">
+        <div class="alergia-icon yellow-icon">⚠️</div>
+        <div class="alergia-info">
+          <span class="alergia-title">Alergia estacional</span>
+          <span class="alergia-sub">Polen</span>
+          <span class="alergia-react">Reacción: estornudos, congestión nasal.</span>
+        </div>
+      </div>
+      <div class="alergia-card green-card">
+        <div class="alergia-icon green-icon">✓</div>
+        <div class="alergia-info">
+          <span class="alergia-title">Otras alergias</span>
+          <span class="alergia-sub green-text">No presenta.</span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-action">
+      <button class="btn-outline-purple">+ Agregar alergia</button>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 7: PREVISUALIZADOR PDF ===== -->
+  <div class="screen" id="screen-pdf">
+    <div class="top-bar">
+      <button class="icon-btn" onclick="goBack()">←</button>
+      <span class="top-title">Vista previa de ficha</span>
+      <button class="icon-btn" onclick="imprimirFicha()" title="Imprimir">🖨️</button>
+    </div>
+
+    <!-- Barra de acciones PDF -->
+    <div class="pdf-toolbar">
+      <span class="pdf-toolbar-label">📄 Ficha Médica — Lucas Martínez</span>
+      <button class="pdf-print-btn" onclick="imprimirFicha()">⬇ Imprimir / Guardar PDF</button>
+    </div>
+
+    <div class="screen-body" id="pdf-scroll-area">
+      <!-- Contenido imprimible -->
+      <div class="pdf-page" id="pdf-content">
+
+        <!-- Encabezado del PDF -->
+        <div class="pdf-header">
+          <div class="pdf-header-logo">
+            <img src="valleviejologo.png" alt="Logo Municipalidad de Valle Viejo" class="pdf-logo-img" />
+          </div>
+          <div class="pdf-header-text">
+            <span class="pdf-org">Municipalidad de Valle Viejo</span>
+            <span class="pdf-title-doc">FICHA MÉDICA DIGITAL</span>
+            <span class="pdf-subtitle-doc">Colonias de Verano 2025</span>
+          </div>
+          <div class="pdf-header-meta">
+            <span class="pdf-meta-item">N.° de ficha: <strong>0042</strong></span>
+            <span class="pdf-meta-item">Generado: <strong>10/08/2025</strong></span>
+            <span class="pdf-meta-item pdf-badge-ok">✓ Ficha completa</span>
+          </div>
+        </div>
+
+        <div class="pdf-divider-line"></div>
+
+        <!-- Datos del niño -->
+        <div class="pdf-section-title">👤 Datos Personales</div>
+        <div class="pdf-two-col">
+          <div class="pdf-field-group">
+            <div class="pdf-field">
+              <span class="pdf-field-label">Nombre completo</span>
+              <span class="pdf-field-value">Lucas Martínez</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Fecha de nacimiento</span>
+              <span class="pdf-field-value">12/04/2016</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Edad</span>
+              <span class="pdf-field-value">8 años</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">DNI</span>
+              <span class="pdf-field-value">47.123.456</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Género</span>
+              <span class="pdf-field-value">Masculino</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Grupo sanguíneo</span>
+              <span class="pdf-field-value"><span class="pdf-tag-red">A+</span></span>
+            </div>
+          </div>
+          <div class="pdf-field-group">
+            <div class="pdf-field">
+              <span class="pdf-field-label">Dirección</span>
+              <span class="pdf-field-value">Av. San Martín 1234</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Localidad</span>
+              <span class="pdf-field-value">Valle Viejo, Catamarca</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Escuela</span>
+              <span class="pdf-field-value">Escuela Primaria N.º 14</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Grado</span>
+              <span class="pdf-field-value">3.° año — Turno mañana</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Sede colonia</span>
+              <span class="pdf-field-value">Club Deportivo Valle Viejo</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Turno colonia</span>
+              <span class="pdf-field-value">Turno A – Semana 1</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-divider-line"></div>
+
+        <!-- Tutor -->
+        <div class="pdf-section-title">👨‍👩‍👦 Tutor / Responsable</div>
+        <div class="pdf-two-col">
+          <div class="pdf-field-group">
+            <div class="pdf-field">
+              <span class="pdf-field-label">Nombre del tutor</span>
+              <span class="pdf-field-value">María González</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Relación</span>
+              <span class="pdf-field-value">Madre</span>
+            </div>
+          </div>
+          <div class="pdf-field-group">
+            <div class="pdf-field">
+              <span class="pdf-field-label">Teléfono</span>
+              <span class="pdf-field-value">351-234-5678</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Email</span>
+              <span class="pdf-field-value">martinez@email.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-divider-line"></div>
+
+        <!-- Antecedentes de salud -->
+        <div class="pdf-section-title">🛡️ Antecedentes de Salud</div>
+        <div class="pdf-antec-grid">
+          <div class="pdf-antec-item">
+            <span class="pdf-antec-label">Personales</span>
+            <span class="pdf-antec-value">Sin antecedentes personales de relevancia.</span>
+          </div>
+          <div class="pdf-antec-item">
+            <span class="pdf-antec-label">Familiares</span>
+            <span class="pdf-antec-value">Abuelo materno con hipertensión arterial.</span>
+          </div>
+          <div class="pdf-antec-item">
+            <span class="pdf-antec-label">Quirúrgicos</span>
+            <span class="pdf-antec-value">Apendicectomía en 2021.</span>
+          </div>
+          <div class="pdf-antec-item">
+            <span class="pdf-antec-label">Otros</span>
+            <span class="pdf-antec-value">Ninguno.</span>
+          </div>
+        </div>
+
+        <div class="pdf-divider-line"></div>
+
+        <!-- Alergias -->
+        <div class="pdf-section-title">⚕️ Alergias</div>
+        <div class="pdf-alergias-list">
+          <div class="pdf-alergia-row pdf-alergia-red">
+            <span class="pdf-alergia-icon">⚠️</span>
+            <div class="pdf-alergia-detail">
+              <span class="pdf-alergia-name">Alergia alimentaria — Maní</span>
+              <span class="pdf-alergia-reac">Reacción: urticaria, dificultad para respirar.</span>
+            </div>
+          </div>
+          <div class="pdf-alergia-row pdf-alergia-yellow">
+            <span class="pdf-alergia-icon">⚠️</span>
+            <div class="pdf-alergia-detail">
+              <span class="pdf-alergia-name">Alergia estacional — Polen</span>
+              <span class="pdf-alergia-reac">Reacción: estornudos, congestión nasal.</span>
+            </div>
+          </div>
+          <div class="pdf-alergia-row pdf-alergia-green">
+            <span class="pdf-alergia-icon">✓</span>
+            <div class="pdf-alergia-detail">
+              <span class="pdf-alergia-name">Otras alergias</span>
+              <span class="pdf-alergia-reac" style="color:#2E7D32">No presenta.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-divider-line"></div>
+
+        <!-- Medicación -->
+        <div class="pdf-section-title">💊 Medicación Habitual</div>
+        <div class="pdf-empty-block">Sin medicación habitual indicada.</div>
+
+        <div class="pdf-divider-line"></div>
+
+        <!-- Contactos de emergencia -->
+        <div class="pdf-section-title">📞 Contactos de Emergencia</div>
+        <div class="pdf-two-col">
+          <div class="pdf-field-group">
+            <div class="pdf-field">
+              <span class="pdf-field-label">Contacto 1</span>
+              <span class="pdf-field-value">María González (Madre)</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Teléfono</span>
+              <span class="pdf-field-value">351-234-5678</span>
+            </div>
+          </div>
+          <div class="pdf-field-group">
+            <div class="pdf-field">
+              <span class="pdf-field-label">Contacto 2</span>
+              <span class="pdf-field-value">Carlos Martínez (Padre)</span>
+            </div>
+            <div class="pdf-field">
+              <span class="pdf-field-label">Teléfono</span>
+              <span class="pdf-field-value">351-876-5432</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-divider-line"></div>
+
+        <!-- Observaciones -->
+        <div class="pdf-section-title">📝 Observaciones</div>
+        <div class="pdf-obs-block">
+          El niño tiene dificultades con actividades de alto impacto. Se recomienda hidratación frecuente. Lleva consigo un inhalador de emergencia en la mochila.
+        </div>
+
+        <!-- Footer -->
+        <div class="pdf-footer">
+          <span>Municipalidad de Valle Viejo — Colonias de Verano 2025</span>
+          <span>Este documento tiene carácter informativo y fue generado digitalmente.</span>
+          <span>Ficha N.° 0042 · Generada el 10/08/2025</span>
+        </div>
+
+      </div><!-- end pdf-page -->
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
